@@ -103,7 +103,7 @@ class max31865(object):
                 # Specific for the used temperature range:
                 if (temp_C<50 and temp_C>-20):
                     post = "temp,sens=" + str(self.sens) + " value=" + str(temp_C)
-                    subprocess.call(["curl", "-i", "-XPOST", "192.168.0.17:8086/write?db=RTD_temperature", "--data-binary", post])
+                    subprocess.call(["curl", "-i", "-XPOST", "192.168.1.88:8086/write?db=RTD_temperature", "--data-binary", post])
 
 	        [hft_msb, hft_lsb] = [out[3], out[4]]
 		hft = (( hft_msb << 8 ) | hft_lsb ) >> 1
